@@ -11,26 +11,26 @@ const Home = (props) => {
   return (
     <LandingPageLayout>
       <div>
-      <p>Enter a Name {name}:</p>
-      <input 
-        type="text" 
-        value={newName} 
-        onChange={(e) => setName(e.target.value)}>
+        <p>Enter a Name : {name}</p>
+        <input
+          type="text"
+          value={newName}
+          onChange={(e) => setName(e.target.value)}>
         </input>
         <button onClick={() => setInfo(newName)}>
           Submit
         </button>
-    </div>
+      </div>
     </LandingPageLayout>
   )
 }
 
 const mapStateToProps = state => {
   return { name: state.main.name }
- }
- 
- const mapDispatchToProps = {
-   setInfo
- }
+}
+
+const mapDispatchToProps = {
+  setInfo
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

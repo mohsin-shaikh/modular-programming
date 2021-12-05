@@ -7,11 +7,11 @@ import {
     MessageOutlined,
     TeamOutlined
 } from '@ant-design/icons';
-import Timer from "../../components/Timer";
-import Mic from "../../components/Mic";
-import Video from "../../components/Video";
-import SearchInput from "../../components/SearchInput";
-import ScreenShare from "../../components/ScreenShare";
+import Timer from "@/components/Timer";
+import Mic from "@/components/Mic";
+import Video from "@/components/Video";
+import SearchInput from "@/components/SearchInput";
+import ScreenShare from "@/components/ScreenShare";
 
 const { Header, Content, Sider } = Layout;
 

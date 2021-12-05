@@ -1,11 +1,11 @@
-import { AppWrapper } from "../context/state";
+import { wrapper } from "@/redux/store"
 import "antd/dist/antd.css";
 
 function App({ Component, pageProps }) {
   return (
-    <AppWrapper>
+    <>
       <Component {...pageProps} />
-    </AppWrapper>);
+    </>);
 }
 
-export default App
+export default wrapper.withRedux(App);

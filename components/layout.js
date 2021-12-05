@@ -2,7 +2,7 @@ import { Layout, Menu, Divider, Button, Skeleton } from "antd";
 
 const { Header, Footer, Content } = Layout;
 
-const LandingPageLayout = () => {
+const LandingPageLayout = ({children}) => {
     return (
         <Layout>
             <Header style={{display: "flex", justifyContent: "space-between"}}>
@@ -19,10 +19,7 @@ const LandingPageLayout = () => {
                 </div>
             </Header>
             <Content>
-                <Skeleton />
-                <Skeleton />
-                <Skeleton />
-                <Skeleton />
+                {children}
             </Content>
             <Footer style={{ textAlign: 'center' }}>ZUUPEE Design ©2018 Crafted with Love by Mohsin Shaikh</Footer>
         </Layout>

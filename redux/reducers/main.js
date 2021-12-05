@@ -1,17 +1,17 @@
 import * as t from "@/redux/types";
 
 const main = (state = {
-    name: "guest",
+  name: "guest",
 }, action) => {
-  switch(action.type){
+  switch (action.type) {
     case t.SET_NAME:
-      return { 
+      return {
         ...state,
         name: action.payload
       };
     default:
-      return {...state};
-    }
+      return { ...state };
+  }
 }
 
 export default main;

@@ -4,6 +4,14 @@ import { setInfo } from "@/redux/actions/main"
 import LandingPageLayout from '@/components/layout'
 
 
+const mapStateToProps = state => {
+  return { name: state.main.name }
+}
+
+const mapDispatchToProps = {
+  setInfo
+};
+
 const Home = (props) => {
   const { name, setInfo } = props;
   const [newName, setName] = useState("");
@@ -25,12 +33,6 @@ const Home = (props) => {
   )
 }
 
-const mapStateToProps = state => {
-  return { name: state.main.name }
-}
 
-const mapDispatchToProps = {
-  setInfo
-}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

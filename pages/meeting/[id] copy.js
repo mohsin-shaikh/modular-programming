@@ -1,5 +1,4 @@
-import React, { useState, useRef } from 'react';
-import { connect } from "react-redux"
+import { useState } from 'react';
 import { Layout, Divider, Button } from "antd";
 import { 
     DisconnectOutlined,
@@ -12,37 +11,13 @@ import Timer from "@/components/Timer";
 import Mic from "@/components/Mic";
 import Video from "@/components/Video";
 import SearchInput from "@/components/SearchInput";
-// import ScreenShare from "@/components/ScreenShare";
-import { setScreenSharingStream } from "@/redux/actions/screenSharing";
-
-const mapStateToProps = state => {
-    return { screenSharingStream: state.screenSharing.screenSharingStream }
-}
-
-const mapDispatchToProps = {
-    setScreenSharingStream
-};
+import ScreenShare from "@/components/ScreenShare";
 
 const { Header, Content, Sider } = Layout;
 
-const MeetingPage = (props) => {
-    const {setScreenSharingStream, screenSharingStream} = props;
+const MeetingPage = () => {
     const [teamCollapsed, setTeamCollapsed] = useState(true);
     const [chatCollapsed, setChatCollapsed] = useState(true);
-    const video = useRef();
-    if (screenSharingStream) {
-        video.current.srcObject = screenSharingStream;
-    }
-
-    const videoError = (error) => {
-        console.log("error", error);
-    }
-
-    const handleVideo = (stream) => {
-        setScreenSharingStream(stream);
-        // video.current.srcObject = stream;
-        // console.log("stream", screenSharingStream);
-    }
 
     return (
         <Layout style={{height: "100%"}}>
@@ -84,18 +59,7 @@ const MeetingPage = (props) => {
                     <Button 
                         type="text" 
                         icon={<FundProjectionScreenOutlined />} 
-                        style={styles.colorWhite}
-                        onClick={() => {
-                            if (navigator.mediaDevices) {
-                                navigator.mediaDevices.getDisplayMedia({
-                                    audio: false,
-                                    video: {
-                                        cursor: "always",
-                                    },
-                                }).then(handleVideo).catch(videoError);        
-                            }
-                        }}
-                    >
+                        style={styles.colorWhite}>
                     </Button>
                 </div>
                 <div>
@@ -104,8 +68,7 @@ const MeetingPage = (props) => {
             </Header>
             <Layout>
                 <Content>
-                    {/* <ScreenShare /> */}
-                    <video style={{width: "100%", height: "100%"}} ref={video} autoPlay={true} />
+                    <ScreenShare />
                 </Content>
                 <Sider 
                     trigger={null} 
@@ -161,4 +124,5 @@ const styles = {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MeetingPage);
+
+export default MeetingPage;

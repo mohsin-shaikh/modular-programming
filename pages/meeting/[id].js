@@ -105,7 +105,9 @@ const MeetingPage = (props) => {
             <Layout>
                 <Content>
                     {/* <ScreenShare /> */}
-                    <video style={{width: "100%", height: "100%"}} ref={video} autoPlay={true} />
+                    <div style={{position: 'relative', width: '100%', height: 'calc(100vw*9/16)'}}>
+                        <video style={{position: 'absolute', top: '0', width: '100%', height: '100%', left: '0'}} ref={video} autoPlay={true} />
+                    </div>
                 </Content>
                 <Sider 
                     trigger={null} 
